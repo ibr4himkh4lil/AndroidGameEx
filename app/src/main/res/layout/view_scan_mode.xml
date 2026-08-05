@@ -56,7 +56,7 @@
             android:textColor="#FFFFFF"
             android:buttonTint="@color/primary_hacker_green"
             android:layout_marginStart="16dp"/>
-    </RadioGroup>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/layout_exact_options"
