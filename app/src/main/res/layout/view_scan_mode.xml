@@ -176,6 +176,9 @@
                     android:textColor="#FFFFFF"
                     android:buttonTint="@color/primary_hacker_green"/>
 
+            </LinearLayout>
+        </HorizontalScrollView>
+
     <LinearLayout
         android:id="@+id/layout_fuzzy_controls"
         android:layout_width="match_parent"
