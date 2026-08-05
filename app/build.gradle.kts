@@ -101,7 +101,7 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     // DataStore
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.datastore:datastore-preferences:1.0.1")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

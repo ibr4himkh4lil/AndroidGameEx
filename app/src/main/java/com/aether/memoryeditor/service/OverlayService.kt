@@ -136,7 +136,9 @@ class OverlayService : Service() {
             // Create a simple overlay view programmatically since layout file may not exist
             overlayView = View(this).apply {
                 setBackgroundColor(0x80000000.toInt())
-                layoutParams = android.view.ViewGroup.LayoutParams(100, 100)
+            }.apply {
+                val viewParams = android.view.ViewGroup.LayoutParams(100, 100)
+                this.layoutParams = viewParams
             }
 
             overlayView?.setOnClickListener {
