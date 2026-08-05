@@ -3,6 +3,8 @@ package com.aether.memoryeditor.di
 import android.content.Context
 import com.aether.memoryeditor.data.repository.ProcessRepository
 import com.aether.memoryeditor.data.repository.ScanRepository
+import com.aether.memoryeditor.data.repository.ScriptRepository
+import com.aether.memoryeditor.data.repository.SettingsRepository
 import com.aether.memoryeditor.native.MemoryScanner
 import com.aether.memoryeditor.native.NativeBridge
 import com.aether.memoryeditor.ui.viewmodel.ScannerViewModel
@@ -27,16 +29,24 @@ class AppModule(private val context: Context) {
         ProcessRepository(context)
     }
 
+    val scriptRepository: ScriptRepository by lazy {
+        ScriptRepository(context)
+    }
+
+    val settingsRepository: SettingsRepository by lazy {
+        SettingsRepository(context)
+    }
+
     fun provideScannerViewModel(): ScannerViewModel {
         return ScannerViewModel(scanRepository, processRepository)
     }
 
     fun provideScriptViewModel(): ScriptViewModel {
-        return ScriptViewModel()
+        return ScriptViewModel(scriptRepository)
     }
 
     fun provideSettingsViewModel(): SettingsViewModel {
-        return SettingsViewModel(context)
+        return SettingsViewModel(settingsRepository)
     }
 
     fun provideContext(): Context = context
