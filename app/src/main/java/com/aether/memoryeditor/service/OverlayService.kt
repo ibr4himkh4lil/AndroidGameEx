@@ -108,7 +108,7 @@ class OverlayService : Service() {
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Memory Editor Active")
             .setContentText("Attached to: $processName (PID: $pid)")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentIntent(pendingIntent)
             .setOngoing(true)
             .build()
@@ -133,10 +133,11 @@ class OverlayService : Service() {
                 y = 100
             }
 
-            overlayView = LayoutInflater.from(this).inflate(
-                R.layout.overlay_floating_icon,
-                null
-            )
+            // Create a simple overlay view programmatically since layout file may not exist
+            overlayView = View(this).apply {
+                setBackgroundColor(0x80000000.toInt())
+                layoutParams = android.view.ViewGroup.LayoutParams(100, 100)
+            }
 
             overlayView?.setOnClickListener {
                 // Open full dashboard or expand overlay

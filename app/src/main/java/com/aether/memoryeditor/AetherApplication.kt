@@ -43,10 +43,10 @@ class AetherApplication : Application() {
             // Main service channel
             val serviceChannel = NotificationChannel(
                 CHANNEL_ID_SERVICE,
-                getString(R.string.notification_channel_name),
+                "Memory Editor Service",
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = getString(R.string.notification_channel_description)
+                description = "Memory editor foreground service"
                 setShowBadge(false)
             }
 

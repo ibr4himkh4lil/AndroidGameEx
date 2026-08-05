@@ -30,14 +30,4 @@ data class ScanResult(
         result = 31 * result + isFrozen.hashCode()
         return result
     }
-
-    fun copy(
-        address: Long = this.address,
-        value: ByteArray = this.value,
-        dataType: DataType = this.dataType,
-        description: String = this.description,
-        isFrozen: Boolean = this.isFrozen
-    ): ScanResult {
-        return ScanResult(address, value, dataType, description, isFrozen)
-    }
 }
